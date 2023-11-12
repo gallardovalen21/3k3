@@ -32,19 +32,17 @@ namespace G1_PPA1_E1
             btnBuscarLlamadas.Visible = true;
             btnCancelar.Visible = true;
             gridLlamadas.Visible = false;
-
             gestor.nuevaConsulta();
-
         }
         public void solicitarPeriodo()
         {
             dtpFechaInicio.Enabled = true;
-            dtpFechaFin.Enabled = true;
-
+            habilitarDtpFechaFin(false);
         }
         public void tomarFechaInicioPeriodo(DateTime fechaInicio)
         {
             gestor.tomarFechaInicioPeriodo(fechaInicio);
+            habilitarDtpFechaFin(true);
         }
         public void tomarFechaFinPeriodo(DateTime fechaFin)
         {
@@ -162,6 +160,11 @@ namespace G1_PPA1_E1
                 }
             }
 
+        }
+
+        private void habilitarDtpFechaFin(bool habilitar)
+        {
+            dtpFechaFin.Enabled = habilitar;
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
