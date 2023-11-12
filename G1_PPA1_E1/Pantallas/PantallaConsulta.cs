@@ -1,12 +1,16 @@
 ﻿using G1_PPA1_E1.Entidades;
+using G1_PPA1_E1.Pantallas;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace G1_PPA1_E1
 {
-    public partial class PantallaConsulta : Form
+    public partial class PantallaConsulta : MaterialForm
     {
+        readonly MaterialSkin.MaterialSkinManager materialSkinManager;
+
         private GestorConsulta gestor = null;
 
         public PantallaConsulta(GestorConsulta gestor)
@@ -14,6 +18,12 @@ namespace G1_PPA1_E1
             this.gestor = gestor;
             gestor.setPantalla(this);
             opcionConsultarEncuesta(gestor);
+            materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+            materialSkinManager.EnforceBackcolorOnAllComponents = true;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Indigo500, MaterialSkin.Primary.Indigo700, MaterialSkin.Primary.Indigo100, MaterialSkin.Accent.Pink200, MaterialSkin.TextShade.WHITE);
+
             //InitializeComponent();
         }
 
@@ -29,7 +39,6 @@ namespace G1_PPA1_E1
             lblFechaFin.Visible = true;
             dtpFechaFin.Visible = true;
             dtpFechaInicio.Visible = true;
-            btnBuscarLlamadas.Visible = true;
             btnCancelar.Visible = true;
             gridLlamadas.Visible = false;
             gestor.nuevaConsulta();
@@ -116,10 +125,6 @@ namespace G1_PPA1_E1
         }
 
         // metodos de los elementos de la interfaz
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
         {
@@ -131,14 +136,9 @@ namespace G1_PPA1_E1
         private void dtpFechaFin_ValueChanged(object sender, EventArgs e)
         {
             DateTime fechaFin = dtpFechaFin.Value;
-
             tomarFechaFinPeriodo(fechaFin);
         }
 
-        private void btnBuscarLlamadas_Click(object sender, EventArgs e)
-        {
-            gestor.buscarLlamadas();
-        }
 
         private void gridLlamadas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -167,11 +167,6 @@ namespace G1_PPA1_E1
             dtpFechaFin.Enabled = habilitar;
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            tomarSeleccionImpresion(1);
-        }
-
         private void btnGenerarCSV_Click(object sender, EventArgs e)
         {
             tomarSeleccionImpresion(2);
@@ -180,6 +175,33 @@ namespace G1_PPA1_E1
         private void PantallaConsulta_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscarLlamadas_Click(object sender, EventArgs e)
+        {
+            gestor.buscarLlamadas();
+        }
+
+        private void lblFechaInicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MenuMock formularioAnterior = new MenuMock();
+            formularioAnterior.Show();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            tomarSeleccionImpresion(1);
         }
     }
 }
