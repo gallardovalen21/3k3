@@ -63,3 +63,10 @@ C:\Users\a\Source\Repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.csproj.GenerateResou
 C:\Users\a\Source\Repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.csproj.CoreCompileInputs.cache
 C:\Users\a\Source\Repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.exe
 C:\Users\a\Source\Repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.pdb
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\G1_PPA1_E1.exe.config
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\G1_PPA1_E1.exe
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\G1_PPA1_E1.pdb
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\itextsharp.dll
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\itextsharp.xml
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.csproj.CopyComplete
