@@ -22,6 +22,7 @@ namespace G1_PPA1_E1.Entidades
 
         //
         public List<Llamada> llamadasEncontradas = new List<Llamada>();
+        public List<string> arrayPreguntas;
         public Llamada llamadaSeleccionada;
         //
 
@@ -30,9 +31,8 @@ namespace G1_PPA1_E1.Entidades
         public String estadoActualLlamadaSelec;
         public List<string> RespuestasDeEncuestaCliente;
         public Encuesta EncuestaAsociada;
-        public List<string> encuestaArmada;
+
         public string descripcionEncuesta;
-        //
 
 
         //Constructor
@@ -47,7 +47,7 @@ namespace G1_PPA1_E1.Entidades
         {
             this.pantalla = value;
         }
-        public void nuevaConsulta()
+        public void ConsultarEncuesta()
         {
             pantalla.solicitarPeriodo();
         }
@@ -65,7 +65,7 @@ namespace G1_PPA1_E1.Entidades
 
             foreach (Llamada llamada in llamadas)
             {
-                if (llamada.esDePeriodo(fechaInicioPeriodo, fechaFinPeriodo) && llamada.tieneRespuestaDeCliente())
+                if (llamada.tieneRespuestaDeCliente() && llamada.esDePeriodo(fechaInicioPeriodo, fechaFinPeriodo))
                 {
                     llamadasEncontradas.Add(llamada);
                 }
@@ -87,7 +87,6 @@ namespace G1_PPA1_E1.Entidades
                 {
                     llamadaSeleccionada = llamada;
                 }
-
             }
 
             buscarDatosLlamadaSeleccionada(llamadaSeleccionada);
@@ -101,11 +100,17 @@ namespace G1_PPA1_E1.Entidades
             estadoActualLlamadaSelec = llamada.DeterminarUltimoEstado;
             RespuestasDeEncuestaCliente = llamada.getDescripcionRespuestaDeEncuesta();
             EncuestaAsociada = BuscarEncuestaAsociada();
+            //preguntas de la encuesta
+            arrayPreguntas = EncuestaAsociada.GetPreguntasEncuesta();
             descripcionEncuesta = EncuestaAsociada.getDescripcionEncuesta();
-            encuestaArmada = EncuestaAsociada.armarEncuesta(RespuestasDeEncuestaCliente);
-            pantalla.solicitarMetodoImpresion(nombreClienteSeleccionado, duracionLlamadaSelec, estadoActualLlamadaSelec, descripcionEncuesta, RespuestasDeEncuestaCliente, encuestaArmada);
-
+            mostrarEncuesta();
         }
+
+        public void mostrarEncuesta()
+        {
+            pantalla.solicitarMetodoImpresion(nombreClienteSeleccionado, duracionLlamadaSelec, estadoActualLlamadaSelec, descripcionEncuesta, RespuestasDeEncuestaCliente, arrayPreguntas);
+        }
+
 
         public Encuesta BuscarEncuestaAsociada()
         {
@@ -165,7 +170,7 @@ namespace G1_PPA1_E1.Entidades
                 document.Add(new Paragraph("Preguntas:"));
                 for (int i = 0; i < RespuestasDeEncuestaCliente.Count; i++)
                 {
-                    document.Add(new Paragraph("Pregunta " + (i + 1) + ": " + encuestaArmada[i]));
+                    document.Add(new Paragraph("Pregunta " + (i + 1) + ": " + arrayPreguntas[i]));
                     document.Add(new Paragraph("Respuesta " + (i + 1) + ": " + RespuestasDeEncuestaCliente[i]));
                 }
 
@@ -174,7 +179,7 @@ namespace G1_PPA1_E1.Entidades
             }
 
             MessageBox.Show("Archivo PDF creado exitosamente.");
-    }
+        }
 
         public void generarCSV()
         {
@@ -205,7 +210,7 @@ namespace G1_PPA1_E1.Entidades
                     writer.WriteLine("Preguntas:");
                     for (int i = 0; i < RespuestasDeEncuestaCliente.Count; i++)
                     {
-                        writer.WriteLine("Pregunta " + (i + 1) + ": " + encuestaArmada[i]);
+                        writer.WriteLine("Pregunta " + (i + 1) + ": " + arrayPreguntas[i]);
                         writer.WriteLine("Respuesta " + (i + 1) + ": " + RespuestasDeEncuestaCliente[i]);
                         writer.WriteLine("--------------");
                     }

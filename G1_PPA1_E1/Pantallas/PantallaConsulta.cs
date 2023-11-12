@@ -12,7 +12,7 @@ namespace G1_PPA1_E1
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
 
         private GestorConsulta gestor = null;
-
+        //
         public PantallaConsulta(GestorConsulta gestor)
         {
             this.gestor = gestor;
@@ -41,7 +41,9 @@ namespace G1_PPA1_E1
             dtpFechaInicio.Visible = true;
             btnCancelar.Visible = true;
             gridLlamadas.Visible = false;
-            gestor.nuevaConsulta();
+
+            gestor.ConsultarEncuesta();
+
         }
         public void solicitarPeriodo()
         {
@@ -89,8 +91,8 @@ namespace G1_PPA1_E1
             gestor.tomarSeleccionLlamada(llamadaSeleccionada);
         }
 
-        public void solicitarMetodoImpresion(string nombreClienteSeleccionado,string duracionLlamadaSelec,string estadoActualLlamadaSelec,
-            string descripcionEncuesta,List<string> descripcionesRtas,List<string> encuestaArmada)
+        public void solicitarMetodoImpresion(string nombreClienteSeleccionado, string duracionLlamadaSelec, string estadoActualLlamadaSelec,
+            string descripcionEncuesta, List<string> descripcionesRtas, List<string> encuestaArmada)
         {
             // Muestra los datos de la llamada y habilita la selección
             btnGenerarCSV.Enabled = true;
@@ -108,7 +110,7 @@ namespace G1_PPA1_E1
 
             gridRespuestas.Rows.Clear();
 
-            int cantFilas = Math.Max( encuestaArmada.Count, descripcionesRtas.Count);
+            int cantFilas = Math.Max(encuestaArmada.Count, descripcionesRtas.Count);
 
             for (int i = 0; i < cantFilas; i++)
             {
