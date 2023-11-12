@@ -30,9 +30,6 @@
         {
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
-            this.gridLlamadas = new System.Windows.Forms.DataGridView();
-            this.Fecha_Llamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBuscarLlamadas = new System.Windows.Forms.Button();
             this.panelLlamada = new System.Windows.Forms.Panel();
             this.txtEncuesta = new System.Windows.Forms.TextBox();
             this.txtDuracion = new System.Windows.Forms.TextBox();
@@ -45,65 +42,36 @@
             this.lblDuracion = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.lblFechaInicio = new System.Windows.Forms.Label();
-            this.lblFechaFin = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.btnGenerarCSV = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLlamadas)).BeginInit();
+            this.btnBuscarLlamadas = new MaterialSkin.Controls.MaterialButton();
+            this.lblFechaInicio = new MaterialSkin.Controls.MaterialLabel();
+            this.lblFechaFin = new MaterialSkin.Controls.MaterialLabel();
+            this.btnCancelar = new MaterialSkin.Controls.MaterialButton();
+            this.btnGenerarCSV = new MaterialSkin.Controls.MaterialButton();
+            this.btnImprimir = new MaterialSkin.Controls.MaterialButton();
+            this.Fecha_Llamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLlamadas = new System.Windows.Forms.DataGridView();
             this.panelLlamada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRespuestas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLlamadas)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFechaInicio
             // 
             this.dtpFechaInicio.Enabled = false;
-            this.dtpFechaInicio.Location = new System.Drawing.Point(70, 35);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(70, 104);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
-            this.dtpFechaInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaInicio.Size = new System.Drawing.Size(220, 20);
             this.dtpFechaInicio.TabIndex = 0;
             this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // dtpFechaFin
             // 
             this.dtpFechaFin.Enabled = false;
-            this.dtpFechaFin.Location = new System.Drawing.Point(290, 35);
+            this.dtpFechaFin.Location = new System.Drawing.Point(301, 104);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaFin.Size = new System.Drawing.Size(220, 20);
             this.dtpFechaFin.TabIndex = 1;
             this.dtpFechaFin.ValueChanged += new System.EventHandler(this.dtpFechaFin_ValueChanged);
-            // 
-            // gridLlamadas
-            // 
-            this.gridLlamadas.AllowUserToAddRows = false;
-            this.gridLlamadas.AllowUserToDeleteRows = false;
-            this.gridLlamadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridLlamadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fecha_Llamada});
-            this.gridLlamadas.Location = new System.Drawing.Point(70, 90);
-            this.gridLlamadas.Name = "gridLlamadas";
-            this.gridLlamadas.ReadOnly = true;
-            this.gridLlamadas.Size = new System.Drawing.Size(531, 224);
-            this.gridLlamadas.TabIndex = 2;
-            this.gridLlamadas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLlamadas_CellContentClick);
-            this.gridLlamadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLlamadas_CellContentClick);
-            // 
-            // Fecha_Llamada
-            // 
-            this.Fecha_Llamada.HeaderText = "Fecha Llamada";
-            this.Fecha_Llamada.Name = "Fecha_Llamada";
-            this.Fecha_Llamada.ReadOnly = true;
-            this.Fecha_Llamada.Width = 150;
-            // 
-            // btnBuscarLlamadas
-            // 
-            this.btnBuscarLlamadas.Location = new System.Drawing.Point(526, 32);
-            this.btnBuscarLlamadas.Name = "btnBuscarLlamadas";
-            this.btnBuscarLlamadas.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarLlamadas.TabIndex = 3;
-            this.btnBuscarLlamadas.Text = "Buscar";
-            this.btnBuscarLlamadas.UseVisualStyleBackColor = true;
-            this.btnBuscarLlamadas.Click += new System.EventHandler(this.btnBuscarLlamadas_Click);
             // 
             // panelLlamada
             // 
@@ -116,9 +84,9 @@
             this.panelLlamada.Controls.Add(this.lblDuracion);
             this.panelLlamada.Controls.Add(this.lblEstado);
             this.panelLlamada.Controls.Add(this.lblCliente);
-            this.panelLlamada.Location = new System.Drawing.Point(70, 352);
+            this.panelLlamada.Location = new System.Drawing.Point(32, 352);
             this.panelLlamada.Name = "panelLlamada";
-            this.panelLlamada.Size = new System.Drawing.Size(531, 260);
+            this.panelLlamada.Size = new System.Drawing.Size(630, 260);
             this.panelLlamada.TabIndex = 4;
             this.panelLlamada.Visible = false;
             // 
@@ -163,7 +131,7 @@
             this.respuesta});
             this.gridRespuestas.Location = new System.Drawing.Point(27, 93);
             this.gridRespuestas.Name = "gridRespuestas";
-            this.gridRespuestas.Size = new System.Drawing.Size(460, 150);
+            this.gridRespuestas.Size = new System.Drawing.Size(579, 150);
             this.gridRespuestas.TabIndex = 4;
             // 
             // DescPregunta
@@ -214,70 +182,148 @@
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente";
             // 
+            // btnBuscarLlamadas
+            // 
+            this.btnBuscarLlamadas.AutoSize = false;
+            this.btnBuscarLlamadas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBuscarLlamadas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnBuscarLlamadas.Depth = 0;
+            this.btnBuscarLlamadas.HighEmphasis = true;
+            this.btnBuscarLlamadas.Icon = null;
+            this.btnBuscarLlamadas.Location = new System.Drawing.Point(542, 80);
+            this.btnBuscarLlamadas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarLlamadas.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBuscarLlamadas.Name = "btnBuscarLlamadas";
+            this.btnBuscarLlamadas.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnBuscarLlamadas.Size = new System.Drawing.Size(96, 36);
+            this.btnBuscarLlamadas.TabIndex = 9;
+            this.btnBuscarLlamadas.Text = "Buscar";
+            this.btnBuscarLlamadas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnBuscarLlamadas.UseAccentColor = false;
+            this.btnBuscarLlamadas.UseVisualStyleBackColor = true;
+            this.btnBuscarLlamadas.Click += new System.EventHandler(this.btnBuscarLlamadas_Click);
+            // 
             // lblFechaInicio
             // 
             this.lblFechaInicio.AutoSize = true;
-            this.lblFechaInicio.Location = new System.Drawing.Point(70, 13);
+            this.lblFechaInicio.Depth = 0;
+            this.lblFechaInicio.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFechaInicio.Location = new System.Drawing.Point(67, 80);
+            this.lblFechaInicio.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFechaInicio.Name = "lblFechaInicio";
-            this.lblFechaInicio.Size = new System.Drawing.Size(104, 13);
-            this.lblFechaInicio.TabIndex = 5;
+            this.lblFechaInicio.Size = new System.Drawing.Size(144, 19);
+            this.lblFechaInicio.TabIndex = 10;
             this.lblFechaInicio.Text = "Fecha Inicio Periodo";
+            this.lblFechaInicio.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
             // lblFechaFin
             // 
             this.lblFechaFin.AutoSize = true;
-            this.lblFechaFin.Location = new System.Drawing.Point(290, 13);
+            this.lblFechaFin.Depth = 0;
+            this.lblFechaFin.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblFechaFin.Location = new System.Drawing.Point(298, 80);
+            this.lblFechaFin.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFechaFin.Name = "lblFechaFin";
-            this.lblFechaFin.Size = new System.Drawing.Size(93, 13);
-            this.lblFechaFin.TabIndex = 6;
+            this.lblFechaFin.Size = new System.Drawing.Size(128, 19);
+            this.lblFechaFin.TabIndex = 11;
             this.lblFechaFin.Text = "Fecha Fin Periodo";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(526, 61);
+            this.btnCancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCancelar.Depth = 0;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.HighEmphasis = true;
+            this.btnCancelar.Icon = null;
+            this.btnCancelar.Location = new System.Drawing.Point(542, 124);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCancelar.Size = new System.Drawing.Size(96, 36);
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancelar.UseAccentColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(607, 543);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
-            this.btnImprimir.TabIndex = 0;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Visible = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnGenerarCSV
             // 
-            this.btnGenerarCSV.Enabled = false;
-            this.btnGenerarCSV.Location = new System.Drawing.Point(607, 572);
+            this.btnGenerarCSV.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGenerarCSV.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnGenerarCSV.Depth = 0;
+            this.btnGenerarCSV.HighEmphasis = true;
+            this.btnGenerarCSV.Icon = null;
+            this.btnGenerarCSV.Location = new System.Drawing.Point(201, 635);
+            this.btnGenerarCSV.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnGenerarCSV.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnGenerarCSV.Name = "btnGenerarCSV";
-            this.btnGenerarCSV.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerarCSV.TabIndex = 8;
-            this.btnGenerarCSV.Text = "GenerarCSV";
+            this.btnGenerarCSV.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnGenerarCSV.Size = new System.Drawing.Size(118, 36);
+            this.btnGenerarCSV.TabIndex = 13;
+            this.btnGenerarCSV.Text = "Generar CSV";
+            this.btnGenerarCSV.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnGenerarCSV.UseAccentColor = false;
             this.btnGenerarCSV.UseVisualStyleBackColor = true;
-            this.btnGenerarCSV.Visible = false;
             this.btnGenerarCSV.Click += new System.EventHandler(this.btnGenerarCSV_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImprimir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnImprimir.Depth = 0;
+            this.btnImprimir.HighEmphasis = true;
+            this.btnImprimir.Icon = null;
+            this.btnImprimir.Location = new System.Drawing.Point(377, 635);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnImprimir.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnImprimir.Size = new System.Drawing.Size(87, 36);
+            this.btnImprimir.TabIndex = 14;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnImprimir.UseAccentColor = false;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // Fecha_Llamada
+            // 
+            this.Fecha_Llamada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Fecha_Llamada.HeaderText = "Fecha Llamada";
+            this.Fecha_Llamada.Name = "Fecha_Llamada";
+            this.Fecha_Llamada.ReadOnly = true;
+            // 
+            // gridLlamadas
+            // 
+            this.gridLlamadas.AllowUserToAddRows = false;
+            this.gridLlamadas.AllowUserToDeleteRows = false;
+            this.gridLlamadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridLlamadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha_Llamada});
+            this.gridLlamadas.Location = new System.Drawing.Point(59, 168);
+            this.gridLlamadas.Name = "gridLlamadas";
+            this.gridLlamadas.ReadOnly = true;
+            this.gridLlamadas.Size = new System.Drawing.Size(579, 164);
+            this.gridLlamadas.TabIndex = 2;
+            this.gridLlamadas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLlamadas_CellContentClick);
+            this.gridLlamadas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridLlamadas_CellContentClick);
             // 
             // PantallaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 624);
+            this.ClientSize = new System.Drawing.Size(700, 700);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnGenerarCSV);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblFechaFin);
             this.Controls.Add(this.lblFechaInicio);
-            this.Controls.Add(this.panelLlamada);
             this.Controls.Add(this.btnBuscarLlamadas);
+            this.Controls.Add(this.panelLlamada);
             this.Controls.Add(this.gridLlamadas);
             this.Controls.Add(this.dtpFechaFin);
             this.Controls.Add(this.dtpFechaInicio);
@@ -285,10 +331,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Encuesta";
             this.Load += new System.EventHandler(this.PantallaConsulta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gridLlamadas)).EndInit();
             this.panelLlamada.ResumeLayout(false);
             this.panelLlamada.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRespuestas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLlamadas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,14 +344,7 @@
 
         private System.Windows.Forms.DateTimePicker dtpFechaInicio;
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
-        private System.Windows.Forms.DataGridView gridLlamadas;
-        private System.Windows.Forms.Button btnBuscarLlamadas;
         private System.Windows.Forms.Panel panelLlamada;
-        private System.Windows.Forms.Label lblFechaInicio;
-        private System.Windows.Forms.Label lblFechaFin;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.Button btnGenerarCSV;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.DataGridView gridRespuestas;
@@ -317,7 +356,14 @@
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescPregunta;
         private System.Windows.Forms.DataGridViewTextBoxColumn respuesta;
+        private MaterialSkin.Controls.MaterialButton btnBuscarLlamadas;
+        private MaterialSkin.Controls.MaterialLabel lblFechaInicio;
+        private MaterialSkin.Controls.MaterialLabel lblFechaFin;
+        private MaterialSkin.Controls.MaterialButton btnCancelar;
+        private MaterialSkin.Controls.MaterialButton btnGenerarCSV;
+        private MaterialSkin.Controls.MaterialButton btnImprimir;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Llamada;
+        private System.Windows.Forms.DataGridView gridLlamadas;
     }
 }
 
