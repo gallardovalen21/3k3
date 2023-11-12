@@ -12,7 +12,7 @@ namespace G1_PPA1_E1.Entidades
         private string nombre;
 
         //Constructor
-        public Estado(string nombre) 
+        public Estado(string nombre)
         {
             this.nombre = nombre;
         }

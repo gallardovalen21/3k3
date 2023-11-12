@@ -9,7 +9,7 @@ namespace G1_PPA1_E1.Entidades
         //Atributos
         private string descripcion;
         private List<Pregunta> pregunta;
-       // private DateTime fechaFinVigencia;
+        // private DateTime fechaFinVigencia;
 
         //Constructor
         public Encuesta(string descripcion, List<Pregunta> pregunta)
@@ -22,6 +22,21 @@ namespace G1_PPA1_E1.Entidades
         {
             return descripcion;
         }
+
+        public List<string> GetPreguntasEncuesta()
+        {
+            List<string> arrayDescripcionesPregunta = new List<string>();
+
+            foreach (Pregunta pregunta in pregunta)
+            {
+                arrayDescripcionesPregunta.Add(pregunta.getStrPregunta());
+            }
+
+            return arrayDescripcionesPregunta;
+        }
+
+
+
         //esta es mia
         public bool EsEncuestaLlamada(List<string> respuestasDeEncuestaCliente)
 
@@ -48,25 +63,6 @@ namespace G1_PPA1_E1.Entidades
 
             return false;
         }
-      
-        public List<string> armarEncuesta(List<string> respuestas)
-        {
-            List<string> descrpPregResp = new List<string> { };
 
-
-            foreach (Pregunta preg in pregunta)
-            {
-                foreach (string resp in respuestas)
-                {
-                    if (preg.esTuRespuestaAsociada(resp))
-                    {
-                        descrpPregResp.Add(preg.getStrPregunta());
-                    }
-                }
-            }
-
-            return descrpPregResp;
-
-        }
     }
 }
