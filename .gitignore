@@ -3,9 +3,9 @@
 
 .vs/
 
-.G1_PPA1_E1/bin/*
-.G1_PPA1_E1/.vs/*
-.G1_PPA1_E1/obj/Debug
+.G1_PPA1_E1/bin/
+.G1_PPA1_E1/.vs/
+.G1_PPA1_E1/obj/Debug/
 
 # Rider
 .idea/
