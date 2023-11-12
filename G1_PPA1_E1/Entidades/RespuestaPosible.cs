@@ -15,7 +15,7 @@ namespace G1_PPA1_E1.Entidades
         private string valor;
 
         //Constructor
-        public RespuestaPosible (string descripcion, string valor)
+        public RespuestaPosible(string descripcion, string valor)
         {
             this.descripcion = descripcion;
             this.valor = valor;
@@ -34,12 +34,12 @@ namespace G1_PPA1_E1.Entidades
         {
             valor = value;
         }
-                public string getValor()
+        public string getValor()
         {
             return valor;
         }
 
-}
+    }
 }
 
 

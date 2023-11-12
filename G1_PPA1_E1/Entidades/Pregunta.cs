@@ -7,7 +7,8 @@ using System.Windows.Forms;
 
 namespace G1_PPA1_E1.Entidades
 {
-       public class Pregunta
+
+    public class Pregunta
     {
         private string strPregunta;
         private List<RespuestaPosible> respuestas;
@@ -15,7 +16,7 @@ namespace G1_PPA1_E1.Entidades
         public Pregunta(string strPregunta, List<RespuestaPosible> respuestas)
         {
             this.strPregunta = strPregunta;
-            this.respuestas = respuestas;        
+            this.respuestas = respuestas;
         }
         public string getStrPregunta()
         {
@@ -62,7 +63,7 @@ namespace G1_PPA1_E1.Entidades
             }
             return false;
         }
-        
+
 
     }
 }

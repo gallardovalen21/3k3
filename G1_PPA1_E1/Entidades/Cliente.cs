@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace G1_PPA1_E1.Entidades
 {
+
     public class Cliente
     {
         //Atributos
@@ -57,6 +58,6 @@ namespace G1_PPA1_E1.Entidades
         }
 
 
-     
+
     }
 }

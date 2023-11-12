@@ -20,11 +20,11 @@ namespace G1_PPA1_E1.Entidades
         private string descripcionOperador;
         private string detalleAccionRequerida;
         private string observacionAuditor;
-    
-      
+
+
         //Constructor
-        public Llamada(string duracion, bool encuestaEnviada,  Cliente cliente, List<CambioDeEstado> cambioDeEstado, List<RespuestaDeCliente> respuestasDeEncuesta,
-             string descripcionOperador, string detalleAccionRequerida,string observacionAuditor)
+        public Llamada(string duracion, bool encuestaEnviada, Cliente cliente, List<CambioDeEstado> cambioDeEstado, List<RespuestaDeCliente> respuestasDeEncuesta,
+             string descripcionOperador, string detalleAccionRequerida, string observacionAuditor)
         {
             this.duracion = duracion;
             this.encuestaEnviada = encuestaEnviada;
@@ -37,6 +37,16 @@ namespace G1_PPA1_E1.Entidades
         }
 
         //Metodos
+
+
+        public bool EsDePeriodo(DateTime fechaInicio, DateTime fechaFin)
+        {
+            DateTime? fechaEstadoInicial = cambioDeEstado.Min(c => c.getFechaHoraInicio());
+            DateTime? fechaEstadoFinal = cambioDeEstado.Max(c => c.getFechaHoraInicio());
+
+            return fechaEstadoInicial > fechaInicio && fechaEstadoFinal < fechaFin;
+        }
+
 
 
         public bool esDePeriodo(DateTime fechaInicio, DateTime fechaFin)
@@ -99,7 +109,7 @@ namespace G1_PPA1_E1.Entidades
 
 
         public string DeterminarFechaHoraUltimoEstado => cambioDeEstado.LastOrDefault().getFechaHoraInicio().ToString(); // Esta habria q borrar?
-      
+
         public string DescripcionOperador => descripcionOperador;
         public string DeterminarUltimoEstado
         {
@@ -132,7 +142,7 @@ namespace G1_PPA1_E1.Entidades
         {
             return duracion;
         }
-              
+
         public List<RespuestaDeCliente> GetRespuestas()
         {
             return respuestasDeEncuesta;
