@@ -1,9 +1,9 @@
 # Visual Studio Code
 .vscode/
 
-.vs/
+.vs/*
 
-.G1_PPA1_E1/bin
+.G1_PPA1_E1/bin/*
 
 # Rider
 .idea/
