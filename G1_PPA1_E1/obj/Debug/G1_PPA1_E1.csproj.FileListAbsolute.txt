@@ -70,3 +70,4 @@ C:\Users\a\source\repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.csproj.CoreCompileIn
 C:\Users\a\source\repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.csproj.CopyComplete
 C:\Users\a\source\repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.exe
 C:\Users\a\source\repos\3k3\G1_PPA1_E1\obj\Debug\G1_PPA1_E1.pdb
+C:\Users\a\source\repos\3k3\G1_PPA1_E1\bin\Debug\MaterialSkin.dll
