@@ -54,10 +54,10 @@ namespace G1_PPA1_E1.Entidades
         };
             List<Encuesta> encuestas = new List<Encuesta>
             {
-                new Encuesta ("Encuesta Electrodomesticos", new List<Pregunta> {preguntas[0], preguntas[1], preguntas[2] } ),
+                new Encuesta ("Encuesta Electrodomesticos", new List<Pregunta> {preguntas[0], preguntas[1] } ),
                 new Encuesta ("Encuesta Heladeria", new List<Pregunta> {preguntas[3], preguntas[4]} ),
-                new Encuesta ("Encuesta", new List<Pregunta> {preguntas[5], preguntas[6]} ),
-                new Encuesta ("Encuesta", new List<Pregunta> {preguntas[7], preguntas[8]} )
+                new Encuesta ("Encuesta 2", new List<Pregunta> {preguntas[5], preguntas[6]} ),
+                new Encuesta ("Encuesta 3", new List<Pregunta> {preguntas[7], preguntas[8]} )
             };
             return encuestas;
         }
@@ -76,9 +76,9 @@ namespace G1_PPA1_E1.Entidades
             new Cliente("Bob Johnson", "55666666", "351987654"),
             new Cliente("Alice Williams", "66777777", "351111111"),
             new Cliente("Mike Davis", "77444444", "351222222"),
-            new Cliente("Juan Mateo Blencio", "44240562", "3885325413"),
-            new Cliente("Zoi Lypnik", "47248442", "351263987"),
-            new Cliente("Mari Gonzales", "44489654", "351182233"),
+            new Cliente( "44240562","Juan Mateo Blencio", "3885325413"),
+            new Cliente( "47248442","Zoi Lypnik", "351263987"),
+            new Cliente("44489654", "Mari Gonzales", "351182233"),
             new Cliente("Agustina Sola", "43654897", "0115346798"),
             new Cliente("Valentin Ruiz", "46987531", "3875349784"),
 
@@ -95,24 +95,23 @@ namespace G1_PPA1_E1.Entidades
                 //4 junio
                 new CambioDeEstado(new DateTime(2022, 6, 4, 10, 30, 0), estados[0]),
                 new CambioDeEstado(new DateTime(2022, 6, 4, 10, 45, 0), estados[1]),
-                //1 junio
+
+                //1 junio esta anda mal
                 new CambioDeEstado(new DateTime(2023, 4, 3, 18, 0, 0), estados[0]),
                 new CambioDeEstado(new DateTime(2023, 4, 3, 19, 0, 0), estados[2]),
-                //10 junio
+                //10 junio anda ok
                 new CambioDeEstado(new DateTime(2023, 10, 10, 10, 0, 0), estados[0]),
                 new CambioDeEstado(new DateTime(2023, 10, 10, 10, 30, 0), estados[2]),
-                //25 junio
+                //25 junio 6-7
                 new CambioDeEstado(new DateTime(2023, 12, 25, 10, 0, 0), estados[0]),
                 new CambioDeEstado(new DateTime(2023, 12, 25, 10, 30, 0), estados[2]),
-                new CambioDeEstado(DateTime.Now.AddDays(-4), estados[0]),
-                new CambioDeEstado(DateTime.Now.AddDays(-3), estados[1]),
-                new CambioDeEstado(DateTime.Now.AddDays(-2), estados[1]),
-                new CambioDeEstado(DateTime.Now.AddDays(-1), estados[2]),
-                new CambioDeEstado( DateTime.Now.AddDays(-11),estados[0]),
-                new CambioDeEstado(DateTime.Now.AddDays(-10),estados[1]),
-                new CambioDeEstado( DateTime.Now.AddDays(-9), estados[0]),
-                new CambioDeEstado( DateTime.Now.AddDays(-8), estados[0]),
-                new CambioDeEstado( DateTime.Now.AddDays(-7), estados[0]),
+                //cambio estado nuevo 8-9 ok
+                new CambioDeEstado(new DateTime(2022, 6, 15, 12, 40, 0), estados[0]),
+                new CambioDeEstado(new DateTime(2022, 6, 15, 12, 50, 0), estados[1]),
+                //cambio estado nuevo 10-11 ok
+                new CambioDeEstado(new DateTime(2022, 11, 10, 12, 30, 0), estados[1]),
+                new CambioDeEstado(new DateTime(2022, 11, 10, 12, 50, 0), estados[2]),
+
 
         };
 
@@ -121,7 +120,7 @@ namespace G1_PPA1_E1.Entidades
 
             List<RespuestaPosible> respuestasPosibles = crearRespuestasPosibles();
 
-            List<RespuestaDeCliente> respuestas = new List<RespuestaDeCliente>
+            List<RespuestaDeCliente> respuestasCliente = new List<RespuestaDeCliente>
 
             {
                 new RespuestaDeCliente(new DateTime(2023, 6, 1, 12, 30, 0), respuestasPosibles[0]),
@@ -132,17 +131,19 @@ namespace G1_PPA1_E1.Entidades
                 new RespuestaDeCliente(new DateTime(2024, 6, 10, 12, 30, 0), respuestasPosibles[1]),
 
                 new RespuestaDeCliente(new DateTime(2022, 6, 15, 12, 30, 0), respuestasPosibles[0]),
-                new RespuestaDeCliente(new DateTime(2022, 6, 15, 12, 40, 0), respuestasPosibles[11])
+                new RespuestaDeCliente(new DateTime(2022, 6, 15, 12, 40, 0), respuestasPosibles[4]),
+
+                new RespuestaDeCliente(new DateTime(2022, 11, 10, 12, 30, 0), respuestasPosibles[0]),
+                new RespuestaDeCliente(new DateTime(2022, 11, 10, 12, 40, 0), respuestasPosibles[4]),
+
+
             };
             List<Llamada> llamadas = new List<Llamada>
             {
-                new Llamada("100", false, listaClientes[0],new List<CambioDeEstado>{CambiosDeEstado[0], CambiosDeEstado[1] }, new List<RespuestaDeCliente>{},"Desc", "20", "observacion Auditor"),
-                new Llamada("200", true, listaClientes[1], new List<CambioDeEstado>{ CambiosDeEstado[2], CambiosDeEstado[3] } , new List<RespuestaDeCliente>{respuestas[0], respuestas[1], respuestas[2]},"Desc", "20", "observacion Auditor"),
-                new Llamada("150", true, listaClientes[2], new List<CambioDeEstado>{ CambiosDeEstado[4], CambiosDeEstado[5]}, new List<RespuestaDeCliente>{respuestas[3], respuestas[4]},"Desc", "20", "observacion Auditor"),
-                new Llamada("190", false, listaClientes[7], new List<CambioDeEstado>{ CambiosDeEstado[6], CambiosDeEstado[7]}, new List<RespuestaDeCliente>{},"Desc", "20", "observacion Auditor"),
-                 new Llamada("200", true, listaClientes[10], new List<CambioDeEstado>{ CambiosDeEstado[8], CambiosDeEstado[9] } , new List<RespuestaDeCliente>{respuestas[0], respuestas[4]},"Desc", "20", "observacion Auditor"),
-                new Llamada("150", true, listaClientes[8], new List<CambioDeEstado>{ CambiosDeEstado[10], CambiosDeEstado[11]}, new List<RespuestaDeCliente>{respuestas[0], respuestas[4]},"Desc", "20", "observacion Auditor"),
-                new Llamada("190", false, listaClientes[9], new List<CambioDeEstado>{ CambiosDeEstado[10], CambiosDeEstado[11]}, new List<RespuestaDeCliente>{respuestas[0], respuestas[4]},"Desc", "20", "observacion Auditor")
+                new Llamada("200", true, listaClientes[1], new List<CambioDeEstado>{ CambiosDeEstado[6], CambiosDeEstado[7] } , new List<RespuestaDeCliente>{respuestasCliente[0], respuestasCliente[1]},"Desc", "20", "observacion Auditor"),
+                new Llamada("150", true, listaClientes[2], new List<CambioDeEstado>{ CambiosDeEstado[4], CambiosDeEstado[5]}, new List<RespuestaDeCliente>{ respuestasCliente[3], respuestasCliente[4]},"Desc", "20", "observacion Auditor"),
+                 new Llamada("200", true, listaClientes[10], new List<CambioDeEstado>{ CambiosDeEstado[8], CambiosDeEstado[9] } , new List<RespuestaDeCliente>{respuestasCliente[5], respuestasCliente[6]},"Desc", "20", "observacion Auditor"),
+                new Llamada("150", true, listaClientes[8], new List<CambioDeEstado>{ CambiosDeEstado[10], CambiosDeEstado[11]}, new List<RespuestaDeCliente>{respuestasCliente[7], respuestasCliente[8]},"Desc", "20", "observacion Auditor")               
             };
 
             return llamadas;

@@ -90,7 +90,6 @@ namespace G1_PPA1_E1.Entidades
             estadoActualLlamadaSelec = llamada.DeterminarUltimoEstado;
             RespuestasDeEncuestaCliente = llamada.getDescripcionRespuestaDeEncuesta();
             EncuestaAsociada = BuscarEncuestaAsociada();
-            //preguntas de la encuesta
             arrayPreguntas = EncuestaAsociada.GetPreguntasEncuesta();
             descripcionEncuesta = EncuestaAsociada.getDescripcionEncuesta();
             mostrarEncuesta();
@@ -104,16 +103,22 @@ namespace G1_PPA1_E1.Entidades
 
         public Encuesta BuscarEncuestaAsociada()
         {
-            Encuesta encuestaAsociada = null;
-            foreach (Encuesta encuesta in encuestas)
+            
+            Iterador iteradorEncuesta = CrearIteradorEncuesta(RespuestasDeEncuestaCliente);
+            iteradorEncuesta.primero();
+
+            while (iteradorEncuesta.HaTerminado() == false)
             {
-                if (encuesta.EsEncuestaLlamada(this.RespuestasDeEncuestaCliente))
+                Encuesta encuesta = (Encuesta)iteradorEncuesta.Actual();
+                if (encuesta != null)
                 {
-                    encuestaAsociada = encuesta;
-                    return encuestaAsociada;
+                    encuesta.EsEncuestaLlamada(RespuestasDeEncuestaCliente);
+                    return encuesta;
+                }
+                else { 
+                iteradorEncuesta.Siguiente();
                 }
             }
-
             return null;
         }
 
@@ -216,7 +221,7 @@ namespace G1_PPA1_E1.Entidades
         public void buscarLlamadas()
         {
             llamadasEncontradas.Clear();
-            Iterador iteradorLlamadas = CrearIterador();
+            Iterador iteradorLlamadas = CrearIteradorLlamada();
             iteradorLlamadas.primero();
 
             while (iteradorLlamadas.HaTerminado() == false)
@@ -232,13 +237,20 @@ namespace G1_PPA1_E1.Entidades
             pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
         }
 
-
-        public override Iterador CrearIterador()
+        public Iterador CrearIteradorEncuesta(List<string> respuestasDeEncuestaCliente)
+        {
+            return new IteradorEncuesta(respuestasDeEncuestaCliente,encuestas);
+        }
+        
+        public Iterador CrearIteradorLlamada()
         {
             return new IteradorLlamadas(llamadas, fechaInicioPeriodo, fechaFinPeriodo);
         }
 
-
+        public override Iterador CrearIterador()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G1_PPA1_E1.Iterator;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace G1_PPA1_E1.Entidades
 {
-    public class Llamada
+    public class Llamada : IAgregado
     {
         //Atributos 
         private string duracion;
@@ -77,9 +78,9 @@ namespace G1_PPA1_E1.Entidades
                 return false;
             }
         }
-        public bool tieneRespuestaDeCliente()
+        public bool TieneRespuestaDeCliente()
         {
-            if (this.respuestasDeEncuesta.Count > 0)
+            if (encuestaEnviada)
             {
                 return true;
             }
@@ -152,15 +153,25 @@ namespace G1_PPA1_E1.Entidades
         public List<string> getDescripcionRespuestaDeEncuesta()
         {
             List<string> arrayDescripcionesRta = new List<string>();
+            IteradorRespuestaDeCliente iteradorRespuestas = (IteradorRespuestaDeCliente)CrearIterador();
+            iteradorRespuestas.primero();
 
-            foreach (RespuestaDeCliente respuesta in respuestasDeEncuesta)
+            while (iteradorRespuestas.HaTerminado() == false)
             {
-                arrayDescripcionesRta.Add(respuesta.getDescripcionRespuestaSeleccionada());
+                RespuestaDeCliente respuesta = (RespuestaDeCliente)iteradorRespuestas.Actual();
+                if (respuesta != null)
+                {
+                    arrayDescripcionesRta.Add(respuesta.getDescripcionRespuestaSeleccionada());
+                }
+                    iteradorRespuestas.Siguiente();
             }
+            return arrayDescripcionesRta; }
 
-            return arrayDescripcionesRta;
+
+        public override Iterador CrearIterador()
+        {
+            return new IteradorRespuestaDeCliente(this.respuestasDeEncuesta);
         }
-
 
     }
 }

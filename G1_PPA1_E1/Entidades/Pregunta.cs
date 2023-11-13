@@ -44,10 +44,7 @@ namespace G1_PPA1_E1.Entidades
             {
                 string descripcion = respuesta.getDescripcion();
                 if (respuestasDeEncuestaCliente.Contains(descripcion))
-                {
-                    return true;
-                }
-            }
+                {    return true;  }            }
 
             return false;
         }
