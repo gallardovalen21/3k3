@@ -25,6 +25,11 @@ namespace G1_PPA1_E1.Entidades
             this.descripcion = descripcion;
             this.pregunta = pregunta;
         }
+        public string getPregunta()
+        {
+            return pregunta[0].getStrPregunta();
+        }
+
         //Metodos
         public string getDescripcionEncuesta()
         {
@@ -59,8 +64,10 @@ namespace G1_PPA1_E1.Entidades
                 if (pregunta1.EsEncuestaLlamada(respuestasDeEncuestaClientes))
                 {
                     contador++;
+                    iteradorPreguntas.Siguiente();
                 }
-                iteradorPreguntas.Siguiente();
+                else { break; }
+                
             }
             return respuestasDeEncuestaClientes.Count == contador;
         }

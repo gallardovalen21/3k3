@@ -21,7 +21,7 @@ namespace G1_PPA1_E1.Iterator
 
         public override bool HaTerminado()
         {
-            if (posicionActual == respuestasDeEncuestaCliente.Count) return true;
+            if (posicionActual == encuestas.Count) return true;
             else return false;
         }
 

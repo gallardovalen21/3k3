@@ -74,8 +74,8 @@ namespace G1_PPA1_E1
                 {
                     DataGridViewRow fila = new DataGridViewRow();
                     fila.CreateCells(gridLlamadas);
-                    fila.Cells[0].Value = llamada.getFechaLlamada(); // Columna "Fecha Llamada"
-
+                    fila.Cells[0].Value = llamada.getFechaLlamada().ToString("yyyy-MM-dd"); // Muestra solo la fecha
+                    fila.Tag = llamada;
                     // Agrega la fila a gridLlamadas
                     gridLlamadas.Rows.Add(fila);
                 }
@@ -86,7 +86,7 @@ namespace G1_PPA1_E1
             }
 
         }
-        public void tomarSeleccionLlamada(DateTime llamadaSeleccionada)
+        public void tomarSeleccionLlamada(Llamada llamadaSeleccionada)
         {
             gestor.tomarSeleccionLlamada(llamadaSeleccionada);
         }
@@ -150,16 +150,15 @@ namespace G1_PPA1_E1
                 // Obtener la fila actualmente seleccionada
                 DataGridViewRow filaSeleccionada = gridLlamadas.Rows[e.RowIndex];
 
+                
+                object valorCelda = filaSeleccionada.Tag;
                
 
-                // Obtener el valor de la celda "Fecha Llamada" como objeto
-                object valorCelda = filaSeleccionada.Cells["Fecha_Llamada"].Value;
-
                 // Verificar si el valor de la celda no es nulo y es de tipo DateTime
-                if (valorCelda != null && valorCelda is DateTime)
+                if (valorCelda != null && valorCelda is Llamada)
                 {
                     // Convertir el valor de la celda a DateTime
-                    DateTime llamadaSeleccionada = (DateTime)valorCelda;
+                    Llamada llamadaSeleccionada = (Llamada)valorCelda;
                     gestor.tomarSeleccionLlamada(llamadaSeleccionada);
                 }
             }

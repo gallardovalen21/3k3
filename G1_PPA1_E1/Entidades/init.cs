@@ -16,17 +16,21 @@ namespace G1_PPA1_E1.Entidades
                 new RespuestaPosible("HORNO", "3"),
                 new RespuestaPosible("MICROONDAS", "4"),
                 new RespuestaPosible("HELADERA", "5"),
-
+                //5
                 new RespuestaPosible("DISCONFORME", "6"),
                 new RespuestaPosible("POCO CONFORME", "7"),
                 new RespuestaPosible("CONFORME", "8"),
                 new RespuestaPosible("MUY CONFORME", "9"),
-
+                //9
                 new RespuestaPosible("BARATO", "1"),
                 new RespuestaPosible("MUY CARO!!", "2"),
-
+                //11
                 new RespuestaPosible("VIERNES", "1"),
-                new RespuestaPosible("SABADO", "2")
+                new RespuestaPosible("SABADO", "2"),
+                new RespuestaPosible("DISCONFORME", "6"),
+                new RespuestaPosible("MUY CARO!!", "2"),
+                new RespuestaPosible("SI", "1"),
+                new RespuestaPosible("NO", "2")
             };
             return respuestasPosibles;
         }
@@ -38,25 +42,26 @@ namespace G1_PPA1_E1.Entidades
             {
                 new Pregunta("¿COMPRO EN LOS ULTIMOS 3 MESES?", new List<RespuestaPosible> {respuestas[0], respuestas[1] } ),
                 new Pregunta("¿QUE ELECTRODOMESTICO LE INTERESA MAS?", new List<RespuestaPosible> { respuestas[2], respuestas[3], respuestas[4] } ),
-                new Pregunta("¿QUE TAN CONFORME SE ENCUENTRA CON SU COMPRA?", new List<RespuestaPosible> { respuestas[5], respuestas[6], respuestas[7], respuestas[8] } ),
-
-                new Pregunta("¿QUE LE PARECIO EL PRECIO?", new List<RespuestaPosible> { respuestas[9], respuestas[10]} ),
+                //2
+                new Pregunta("¿QUE TAN CONFORME SE ENCUENTRA CON SU COMPRA?", new List<RespuestaPosible> { respuestas[13], respuestas[6] } ),
+                new Pregunta("¿QUE LE PARECIO EL PRECIO?", new List<RespuestaPosible> { respuestas[14]} ),
+                //3
                 new Pregunta("¿VOLVERIA A PROBAR NUESTROS HELADOS?", new List<RespuestaPosible> { respuestas[0], respuestas[1] } ),
-
-             new Pregunta("¿El personal de atención al cliente fue capaz de resolver tus dudas o inquietudes?",new List<RespuestaPosible> { respuestas[0], respuestas[1] }),
+           //5
+             new Pregunta("¿El personal de atención al cliente fue capaz de resolver tus dudas o inquietudes?",new List<RespuestaPosible> { respuestas[15], respuestas[16] }),
 
             new Pregunta("¿La solución proporcionada a tu consulta/problema fue satisfactoria?", new List < RespuestaPosible > { respuestas[0], respuestas[1] }),
-
-           new Pregunta("¿La atención al cliente que recibiste fue amable y cordial?", new List < RespuestaPosible > { respuestas[0], respuestas[1] }),
+            //7
+           new Pregunta("¿La atención al cliente que recibiste fue amable y cordial?", new List < RespuestaPosible > { respuestas[15], respuestas[16] }),
 
             new Pregunta("¿Recomendarías nuestros productos/servicios a otros?", new List < RespuestaPosible > { respuestas[0], respuestas[1] }),
 
         };
             List<Encuesta> encuestas = new List<Encuesta>
             {
-                new Encuesta ("Encuesta Electrodomesticos", new List<Pregunta> {preguntas[0], preguntas[1] } ),
-                new Encuesta ("Encuesta Heladeria", new List<Pregunta> {preguntas[3], preguntas[4]} ),
-                new Encuesta ("Encuesta 2", new List<Pregunta> {preguntas[5], preguntas[6]} ),
+                new Encuesta ("Encuesta 0", new List<Pregunta> {preguntas[0], preguntas[1] } ),
+                new Encuesta ("Encuesta 1", new List<Pregunta> {preguntas[2], preguntas[3]} ),
+                new Encuesta ("Encuesta 2", new List<Pregunta> {preguntas[5], preguntas[7]} ),
                 new Encuesta ("Encuesta 3", new List<Pregunta> {preguntas[7], preguntas[8]} )
             };
             return encuestas;
@@ -129,20 +134,26 @@ namespace G1_PPA1_E1.Entidades
 
                 new RespuestaDeCliente(new DateTime(2024, 6, 10, 12, 30, 0), respuestasPosibles[10]),
                 new RespuestaDeCliente(new DateTime(2024, 6, 10, 12, 30, 0), respuestasPosibles[1]),
-
+                //5
                 new RespuestaDeCliente(new DateTime(2022, 6, 15, 12, 30, 0), respuestasPosibles[0]),
                 new RespuestaDeCliente(new DateTime(2022, 6, 15, 12, 40, 0), respuestasPosibles[4]),
 
                 new RespuestaDeCliente(new DateTime(2022, 11, 10, 12, 30, 0), respuestasPosibles[0]),
                 new RespuestaDeCliente(new DateTime(2022, 11, 10, 12, 40, 0), respuestasPosibles[4]),
+                //9
+                new RespuestaDeCliente(new DateTime(2023, 10, 10, 10, 0, 0), respuestasPosibles[13]),
+                 new RespuestaDeCliente(new DateTime(2023, 10, 10, 10, 10, 20), respuestasPosibles[14]),
+                 new RespuestaDeCliente(new DateTime(2023, 10, 10, 10, 0, 0), respuestasPosibles[15]),
+                 new RespuestaDeCliente(new DateTime(2023, 10, 10, 10, 10, 20), respuestasPosibles[16])
 
 
             };
             List<Llamada> llamadas = new List<Llamada>
             {
                 new Llamada("200", true, listaClientes[1], new List<CambioDeEstado>{ CambiosDeEstado[6], CambiosDeEstado[7] } , new List<RespuestaDeCliente>{respuestasCliente[0], respuestasCliente[1]},"Desc", "20", "observacion Auditor"),
-                new Llamada("150", true, listaClientes[2], new List<CambioDeEstado>{ CambiosDeEstado[4], CambiosDeEstado[5]}, new List<RespuestaDeCliente>{ respuestasCliente[3], respuestasCliente[4]},"Desc", "20", "observacion Auditor"),
-                 new Llamada("200", true, listaClientes[10], new List<CambioDeEstado>{ CambiosDeEstado[8], CambiosDeEstado[9] } , new List<RespuestaDeCliente>{respuestasCliente[5], respuestasCliente[6]},"Desc", "20", "observacion Auditor"),
+                //
+                new Llamada("150", true, listaClientes[2], new List<CambioDeEstado>{ CambiosDeEstado[4], CambiosDeEstado[5]}, new List<RespuestaDeCliente>{ respuestasCliente[9], respuestasCliente[10]},"Desc", "20", "observacion Auditor"),
+                 new Llamada("200", true, listaClientes[10], new List<CambioDeEstado>{ CambiosDeEstado[8], CambiosDeEstado[9] } , new List<RespuestaDeCliente>{respuestasCliente[11], respuestasCliente[12]},"Desc", "20", "observacion Auditor"),
                 new Llamada("150", true, listaClientes[8], new List<CambioDeEstado>{ CambiosDeEstado[10], CambiosDeEstado[11]}, new List<RespuestaDeCliente>{respuestasCliente[7], respuestasCliente[8]},"Desc", "20", "observacion Auditor")               
             };
 

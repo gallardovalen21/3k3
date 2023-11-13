@@ -88,18 +88,9 @@ namespace G1_PPA1_E1.Entidades
         }
 
 
-        public void tomarSeleccionLlamada(DateTime llamadaSeleccion)
+        public void tomarSeleccionLlamada(Llamada llamadaSeleccion)
         {
-
-            foreach (Llamada llamada in llamadasEncontradas)
-            {
-                if (llamada.getFechaLlamada() == llamadaSeleccion)
-                {
-                    llamadaSeleccionada = llamada;
-                }
-            }
-
-            buscarDatosLlamadaSeleccionada(llamadaSeleccionada);
+            buscarDatosLlamadaSeleccionada(llamadaSeleccion);
 
         }
 
@@ -130,9 +121,9 @@ namespace G1_PPA1_E1.Entidades
             while (iteradorEncuesta.HaTerminado() == false)
             {
                 Encuesta encuesta = (Encuesta)iteradorEncuesta.Actual();
-                if (encuesta != null)
+                string loco= encuesta.getDescripcionEncuesta();
+                if (encuesta.EsEncuestaLlamada(RespuestasDeEncuestaCliente))
                 {
-                    encuesta.EsEncuestaLlamada(RespuestasDeEncuestaCliente);
                     return encuesta;
                 }
                 else { 
