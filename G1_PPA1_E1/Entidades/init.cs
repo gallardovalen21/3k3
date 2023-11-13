@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G1_PPA1_E1.AdmPersistencia;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -7,7 +8,7 @@ namespace G1_PPA1_E1.Entidades
     internal class init
     {
         // CREA LLAMADAS
-        public static List<Llamada> CrearListaLlamadas()
+        public static List<Llamada> crearListaLlamadas()
         {
             List<Llamada> llamadas = new List<Llamada>();
 
@@ -30,7 +31,7 @@ namespace G1_PPA1_E1.Entidades
                             resultadosConsulta.Add(resultado);
                         }
 
-                        llamadas = Llamada.MaterializarDesdeConsulta(resultadosConsulta);
+                        llamadas = LlamadaPersistencia.MaterializarDesdeConsulta(resultadosConsulta);
                     }
                 }
             }

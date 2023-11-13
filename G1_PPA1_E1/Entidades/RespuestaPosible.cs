@@ -15,6 +15,9 @@ namespace G1_PPA1_E1.Entidades
         private string valor;
 
         //Constructor
+        public RespuestaPosible() { }
+
+
         public RespuestaPosible(string descripcion, string valor)
         {
             this.descripcion = descripcion;
