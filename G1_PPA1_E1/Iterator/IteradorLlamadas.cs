@@ -32,13 +32,11 @@ namespace G1_PPA1_E1.Iterator
 
         public override Object Actual()
         {
-            if(llamadas[posicionActual].esDePeriodo(fechaInicioPeriodo, fechaFinPeriodo) && llamadas[posicionActual].TieneRespuestaDeCliente()) { 
-             return llamadas[posicionActual];
+            if(llamadas[posicionActual].esDePeriodo(fechaInicioPeriodo, fechaFinPeriodo)
+                && llamadas[posicionActual].TieneRespuestaDeCliente()) { return llamadas[posicionActual];
             }
             else
-            {
-                return null;
-            }
+            {  return null;  }
         }
 
         public override void Siguiente()

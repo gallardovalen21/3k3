@@ -63,7 +63,27 @@ namespace G1_PPA1_E1.Entidades
         {
             fechaFinPeriodo = fechaFin;
         }
-        
+
+
+        public void buscarLlamadas()
+        {
+            llamadasEncontradas.Clear();
+            Iterador iteradorLlamadas = CrearIteradorLlamada();
+            iteradorLlamadas.primero();
+
+            while (iteradorLlamadas.HaTerminado() == false)
+            {
+                //aca
+                Llamada llamada = (Llamada)iteradorLlamadas.Actual();
+
+                if (llamada != null)
+                {
+                    llamadasEncontradas.Add(llamada);
+                }
+                iteradorLlamadas.Siguiente();
+            }
+            pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
+        }
 
 
 
@@ -218,25 +238,6 @@ namespace G1_PPA1_E1.Entidades
         {
 
         }
-        public void buscarLlamadas()
-        {
-            llamadasEncontradas.Clear();
-            Iterador iteradorLlamadas = CrearIteradorLlamada();
-            iteradorLlamadas.primero();
-
-            while (iteradorLlamadas.HaTerminado() == false)
-            {
-                Llamada llamada = (Llamada)iteradorLlamadas.Actual();
-
-                if (llamada != null)
-                {
-                    llamadasEncontradas.Add(llamada);
-                }
-                iteradorLlamadas.Siguiente();
-            }
-            pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
-        }
-
         public Iterador CrearIteradorEncuesta(List<string> respuestasDeEncuestaCliente)
         {
             return new IteradorEncuesta(respuestasDeEncuestaCliente,encuestas);
