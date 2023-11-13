@@ -39,17 +39,6 @@ namespace G1_PPA1_E1.Entidades
 
         //Metodos
 
-
-        public bool EsDePeriodo(DateTime fechaInicio, DateTime fechaFin)
-        {
-            DateTime? fechaEstadoInicial = cambioDeEstado.Min(c => c.getFechaHoraInicio());
-            DateTime? fechaEstadoFinal = cambioDeEstado.Max(c => c.getFechaHoraInicio());
-
-            return fechaEstadoInicial > fechaInicio && fechaEstadoFinal < fechaFin;
-        }
-
-
-
         public bool esDePeriodo(DateTime fechaInicio, DateTime fechaFin)
         {
 
@@ -102,13 +91,7 @@ namespace G1_PPA1_E1.Entidades
             }
             return cambioMasAntiguo.getFechaHoraInicio();
         }
-        public bool tieneEncuestaEnviada()
-        {
-            return encuestaEnviada;
-        }
-
-
-
+      
         public string DeterminarFechaHoraUltimoEstado => cambioDeEstado.LastOrDefault().getFechaHoraInicio().ToString(); // Esta habria q borrar?
 
         public string DescripcionOperador => descripcionOperador;

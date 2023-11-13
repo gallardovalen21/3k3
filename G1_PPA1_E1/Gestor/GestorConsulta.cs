@@ -35,7 +35,6 @@ namespace G1_PPA1_E1.Entidades
         public String estadoActualLlamadaSelec;
         public List<string> RespuestasDeEncuestaCliente;
         public Encuesta EncuestaAsociada;
-
         public string descripcionEncuesta;
 
 

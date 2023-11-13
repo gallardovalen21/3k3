@@ -49,17 +49,6 @@ namespace G1_PPA1_E1.Entidades
             return false;
         }
 
-        public bool esTuRespuestaAsociada(string resp)
-        {
-            foreach (RespuestaPosible respuestaPosible in respuestas)
-            {
-                if (respuestaPosible.getDescripcion() == resp)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
 
     }
