@@ -150,6 +150,8 @@ namespace G1_PPA1_E1
                 // Obtener la fila actualmente seleccionada
                 DataGridViewRow filaSeleccionada = gridLlamadas.Rows[e.RowIndex];
 
+               
+
                 // Obtener el valor de la celda "Fecha Llamada" como objeto
                 object valorCelda = filaSeleccionada.Cells["Fecha_Llamada"].Value;
 

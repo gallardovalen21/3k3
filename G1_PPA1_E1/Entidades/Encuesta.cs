@@ -43,32 +43,28 @@ namespace G1_PPA1_E1.Entidades
             return arrayDescripcionesPregunta;
         }
 
-        public bool EsEncuestaLlamada(List<string> respuestasDeEncuestaCliente)
+        public bool EsEncuestaLlamada(List<string> respuestasDeEncuestaClientes)
 
         {
+            respuestasDeEncuestaCliente = respuestasDeEncuestaClientes;
             int contador = 0;
-            Iterador iteradorPreguntas = CrearIterador(respuestasDeEncuestaCliente);
+            Iterador iteradorPreguntas = CrearIterador();
             iteradorPreguntas.primero();
+            
 
             while (iteradorPreguntas.HaTerminado() == false)
             {
                 Pregunta pregunta1 = (Pregunta)iteradorPreguntas.Actual();
 
-                if (pregunta1.EsEncuestaLlamada(respuestasDeEncuestaCliente))
+                if (pregunta1.EsEncuestaLlamada(respuestasDeEncuestaClientes))
                 {
                     contador++;
                 }
                 iteradorPreguntas.Siguiente();
             }
-            return respuestasDeEncuestaCliente.Count == contador;
+            return respuestasDeEncuestaClientes.Count == contador;
         }
 
-        
-        public Iterador CrearIterador(List<string> respuestasDeEncuestaCliente)
-        {
-            return new IteradorPregunta(respuestasDeEncuestaCliente, this.pregunta);
-        }
-
-      
+              
     }
 }

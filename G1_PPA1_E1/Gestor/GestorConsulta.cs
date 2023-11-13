@@ -28,6 +28,7 @@ namespace G1_PPA1_E1.Entidades
         public List<string> arrayPreguntas;
         public Llamada llamadaSeleccionada;
         //
+        public bool esEncuesta;
 
         public String nombreClienteSeleccionado;
         public String duracionLlamadaSelec;
@@ -68,7 +69,8 @@ namespace G1_PPA1_E1.Entidades
         public void buscarLlamadas()
         {
             llamadasEncontradas.Clear();
-            Iterador iteradorLlamadas = CrearIteradorLlamada();
+            esEncuesta = false;
+            Iterador iteradorLlamadas = CrearIterador();
             iteradorLlamadas.primero();
 
             while (iteradorLlamadas.HaTerminado() == false)
@@ -84,8 +86,6 @@ namespace G1_PPA1_E1.Entidades
             }
             pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
         }
-
-
 
 
         public void tomarSeleccionLlamada(DateTime llamadaSeleccion)
@@ -123,8 +123,8 @@ namespace G1_PPA1_E1.Entidades
 
         public Encuesta BuscarEncuestaAsociada()
         {
-            
-            Iterador iteradorEncuesta = CrearIteradorEncuesta(RespuestasDeEncuestaCliente);
+            esEncuesta = true;
+            Iterador iteradorEncuesta = CrearIterador();
             iteradorEncuesta.primero();
 
             while (iteradorEncuesta.HaTerminado() == false)
@@ -238,19 +238,17 @@ namespace G1_PPA1_E1.Entidades
         {
 
         }
-        public Iterador CrearIteradorEncuesta(List<string> respuestasDeEncuestaCliente)
-        {
-            return new IteradorEncuesta(respuestasDeEncuestaCliente,encuestas);
-        }
-        
-        public Iterador CrearIteradorLlamada()
-        {
-            return new IteradorLlamadas(llamadas, fechaInicioPeriodo, fechaFinPeriodo);
-        }
-
+      
         public override Iterador CrearIterador()
         {
-            throw new NotImplementedException();
+            if (esEncuesta)
+            {
+                return new IteradorEncuesta(RespuestasDeEncuestaCliente, encuestas);
+            }
+            else
+            {
+                return new IteradorLlamadas(llamadas, fechaInicioPeriodo, fechaFinPeriodo);
+            }
         }
     }
 }
