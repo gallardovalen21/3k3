@@ -1,8 +1,10 @@
-﻿using iTextSharp.text;
+﻿using G1_PPA1_E1.Iterator;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
@@ -10,7 +12,7 @@ using Chunk = iTextSharp.text.Chunk;
 
 namespace G1_PPA1_E1.Entidades
 {
-    public class GestorConsulta
+    public class GestorConsulta : IAgregado
     {
         //Atributos
         public List<Llamada> llamadas;
@@ -19,6 +21,7 @@ namespace G1_PPA1_E1.Entidades
 
         private DateTime fechaInicioPeriodo;
         private DateTime fechaFinPeriodo;
+
 
         //
         public List<Llamada> llamadasEncontradas = new List<Llamada>();
@@ -33,6 +36,7 @@ namespace G1_PPA1_E1.Entidades
         public Encuesta EncuestaAsociada;
 
         public string descripcionEncuesta;
+
 
 
         //Constructor
@@ -59,21 +63,7 @@ namespace G1_PPA1_E1.Entidades
         {
             fechaFinPeriodo = fechaFin;
         }
-        public void buscarLlamadas()
-        {
-            llamadasEncontradas.Clear();
-
-            foreach (Llamada llamada in llamadas)
-            {
-                if (llamada.tieneRespuestaDeCliente() && llamada.esDePeriodo(fechaInicioPeriodo, fechaFinPeriodo))
-                {
-                    llamadasEncontradas.Add(llamada);
-                }
-            }
-
-            pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
-
-        }
+        
 
 
 
@@ -223,6 +213,32 @@ namespace G1_PPA1_E1.Entidades
         {
 
         }
+        public void buscarLlamadas()
+        {
+            llamadasEncontradas.Clear();
+            Iterador iteradorLlamadas = CrearIterador();
+            iteradorLlamadas.primero();
+
+            while (iteradorLlamadas.HaTerminado() == false)
+            {
+                Llamada llamada = (Llamada)iteradorLlamadas.Actual();
+
+                if (llamada != null)
+                {
+                    llamadasEncontradas.Add(llamada);
+                }
+                iteradorLlamadas.Siguiente();
+            }
+            pantalla.solicitarSeleccionLlamada(llamadasEncontradas);
+        }
+
+
+        public override Iterador CrearIterador()
+        {
+            return new IteradorLlamadas(llamadas, fechaInicioPeriodo, fechaFinPeriodo);
+        }
+
+
     }
 }
 

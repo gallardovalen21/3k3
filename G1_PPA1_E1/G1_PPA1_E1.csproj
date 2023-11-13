@@ -66,6 +66,12 @@
     <Compile Include="Entidades\RespuestaDeCliente.cs" />
     <Compile Include="Entidades\RespuestaPosible.cs" />
     <Compile Include="Gestor\GestorConsulta.cs" />
+    <Compile Include="Iterator\iAgregado.cs" />
+    <Compile Include="Iterator\Iterador.cs" />
+    <Compile Include="Iterator\IteradorEncuesta.cs" />
+    <Compile Include="Iterator\IteradorLlamadas.cs" />
+    <Compile Include="Iterator\IteradorPregunta.cs" />
+    <Compile Include="Iterator\IteradorRespuestaDeCliente.cs" />
     <Compile Include="Pantallas\MenuMock.cs">
       <SubType>Form</SubType>
     </Compile>
